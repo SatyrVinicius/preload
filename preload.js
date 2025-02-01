@@ -38,7 +38,7 @@ function hideOverlay() {
         renderer: 'svg', // ou 'canvas' se preferir
         loop: true,
         autoplay: true,
-        path: 'https://SatyrVinicius.github.io/preload/JVGIsylS3F-3.json',
+        path: 'https://SatyrVinicius.github.io/preload/Animation - 1738423446323.json',
     });
 }
 
