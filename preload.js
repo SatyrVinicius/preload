@@ -24,26 +24,27 @@ lottieContainer.style.cssText = `
     left: 50%;
     transform: translate(-50%, -50%);
 `;
-lottieContainer.style.display = 'none';
 
 document.body.appendChild(overlay);
 document.body.appendChild(lottieContainer);
 
+let hasLoaded = false; // Variável para evitar múltiplas execuções
+
 function hideOverlay() {
+    if (hasLoaded) return; // Se já foi chamado, não executa novamente
+    hasLoaded = true;
+
     overlay.style.display = 'none';
     lottieContainer.style.display = 'block';
-    // Substitua pela URL direta do seu arquivo JSON do Lottie.
+
     lottie.loadAnimation({
         container: lottieContainer,
-        renderer: 'svg', // ou 'canvas' se preferir
+        renderer: 'svg', 
         loop: true,
         autoplay: true,
         path: 'https://SatyrVinicius.github.io/preload/Animation - 1738423446323.json',
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    hideOverlay(); // Teste sem o setTimeout
-});
-
+document.addEventListener('DOMContentLoaded', hideOverlay);
 window.addEventListener('load', hideOverlay);
